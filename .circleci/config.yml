@@ -22,12 +22,15 @@ jobs:
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
-          branch: master
+          branches:
+            only: master
           command: mvn -B -DskipTests clean package
       # Then run your tests!
       - run:
           name: Test
-          branch: master
+          branches:
+            only:
+              master
           command: mvn test
 
 # Invoke jobs via workflows
