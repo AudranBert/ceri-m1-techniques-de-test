@@ -2,6 +2,7 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -21,10 +22,12 @@ jobs:
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
+          branch: master
           command: mvn -B -DskipTests clean package
       # Then run your tests!
       - run:
           name: Test
+          branch: master
           command: mvn test
 
 # Invoke jobs via workflows
