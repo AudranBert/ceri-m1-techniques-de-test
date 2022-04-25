@@ -1,6 +1,6 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
-Bonjour je teste si le CI est que sur master
+Bonjour je teste si le CI est que sur master v2
 
 ## Introduction
 
