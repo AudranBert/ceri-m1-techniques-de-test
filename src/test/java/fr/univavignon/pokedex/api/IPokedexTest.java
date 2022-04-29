@@ -6,6 +6,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,12 +42,43 @@ class IPokedexTest {
             when(mockPokedex.getPokemon(any(Integer.class))).then(new Answer<Pokemon>() {
                 @Override
                 public Pokemon answer(InvocationOnMock invocationOnMock) throws Throwable {
-                    return pokemonList.get(invocationOnMock.getArgument(0));
+                    int t=invocationOnMock.getArgument(0);
+                    if (t<pokemonList.size() && t>=0){
+                        return pokemonList.get(invocationOnMock.getArgument(0));
+                    }
+                    return null;
                 }
             });
         } catch (PokedexException e) {
             e.printStackTrace();
         }
+        when(mockPokedex.getPokemons()).then(new Answer<List<Pokemon>>() {
+            @Override
+            public List<Pokemon> answer(InvocationOnMock invocationOnMock) throws Throwable {
+                return pokemonList;
+
+            }
+        });
+        when(mockPokedex.getPokemons(any())).then(new Answer<List<Pokemon>>() {
+            @Override
+            public List<Pokemon> answer(InvocationOnMock invocationOnMock) throws Throwable {
+                Comparator<Pokemon> comparator=new Comparator<Pokemon>() {
+                    @Override
+                    public int compare(Pokemon o1, Pokemon o2) {
+                        if (o1.getIndex()<o2.getIndex()){
+                            return -1;
+                        }
+                        else if (o1.getIndex()==o2.getIndex()) {
+                            return 0;
+                        }
+                        return 0;
+                    }
+                };
+                pokemonList.sort(comparator);
+                return pokemonList;
+            }
+        });
+
     }
 
 
@@ -65,16 +97,32 @@ class IPokedexTest {
 
     }
 
-/*
-    @Test(expected=PokedexException.throws)
-    public void getPokemonTestException(){
+
+    @Test
+    public void getPokemonTestShouldThrowException(){
         try {
-            assertEquals(0,mockPokedex.getPokemon(0).getIndex());
+            when(mockPokedex.getPokemon(-1)).thenThrow(PokedexException.class);
         } catch (PokedexException e) {
             e.printStackTrace();
         }
+
+        assertThrows(PokedexException.class, () -> {
+            mockPokedex.getPokemon(-1);
+        });
     }
-*/
+
+    @Test
+    public void getPokemonTestShouldThrowException1(){
+        try {
+            when(mockPokedex.getPokemon(1)).thenThrow(PokedexException.class);
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+
+        assertThrows(PokedexException.class, () -> {
+            mockPokedex.getPokemon(1);
+        });
+    }
 
 
     @Test
@@ -85,8 +133,33 @@ class IPokedexTest {
         } catch (PokedexException e) {
             e.printStackTrace();
         }
-
-
     }
 
+    @Test
+    public void getPokemonsTest(){
+        mockPokedex.addPokemon(bulbizarre);
+        List<Pokemon> list=mockPokedex.getPokemons();
+        assertEquals(list.get(0).getIndex(),bulbizarre.getIndex());
+    }
+
+
+    @Test
+    public void getPokemonsComparatorTest(){
+        Comparator<Pokemon> comparator=new Comparator<Pokemon>() {
+            @Override
+            public int compare(Pokemon o1, Pokemon o2) {
+                if (o1.getIndex()<o2.getIndex()){
+                    return -1;
+                }
+                else if (o1.getIndex()==o2.getIndex()) {
+                    return 0;
+                }
+                return 0;
+            }
+        };
+        mockPokedex.addPokemon(aquali);
+        mockPokedex.addPokemon(bulbizarre);
+        List<Pokemon> list=mockPokedex.getPokemons(comparator);
+        assertEquals(list.get(0).getIndex(),bulbizarre.getIndex());
+    }
 }
