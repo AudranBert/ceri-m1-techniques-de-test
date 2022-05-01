@@ -14,19 +14,12 @@ class IPokedexFactoryTest {
     IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
     Pokemon bulbizarre=new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
 
-    IPokemonMetadataProvider provider=new IPokemonMetadataProvider() {
-        @Override
-        public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-            return null;
-        }
-    };
-    IPokemonFactory factory=new IPokemonFactory() {
-        @Override
-        public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-            return null;
-        }
-    };
-    IPokedex pokedex=new IPokedex() {
+    IPokemonMetadataProvider provider = mock(IPokemonMetadataProvider.class);
+    IPokemonFactory factory = mock(IPokemonFactory.class);
+
+
+
+    IPokedex pokedex = new IPokedex() {
         @Override
         public int size() {
             return 0;

@@ -12,48 +12,10 @@ import static org.mockito.Mockito.when;
 
 class IPokemonTrainerFactoryTest {
     IPokemonTrainerFactory mockPokemonTrainerFactory=mock(IPokemonTrainerFactory.class);
-    IPokedex pokedex=new IPokedex() {
-        @Override
-        public int size() {
-            return 0;
-        }
+    IPokedex pokedex = mock(IPokedex.class);
 
-        @Override
-        public int addPokemon(Pokemon pokemon) {
-            return 0;
-        }
+    IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
 
-        @Override
-        public Pokemon getPokemon(int id) throws PokedexException {
-            return null;
-        }
-
-        @Override
-        public List<Pokemon> getPokemons() {
-            return null;
-        }
-
-        @Override
-        public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
-            return null;
-        }
-
-        @Override
-        public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-            return null;
-        }
-
-        @Override
-        public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-            return null;
-        }
-    };
-    IPokedexFactory pokedexFactory=new IPokedexFactory() {
-        @Override
-        public IPokedex createPokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
-            return null;
-        }
-    };
     PokemonTrainer pokemonTrainer=new PokemonTrainer("Test",Team.MYSTIC,pokedex);
 
     @BeforeEach
