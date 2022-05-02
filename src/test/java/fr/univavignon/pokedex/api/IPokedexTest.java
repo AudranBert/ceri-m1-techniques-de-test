@@ -62,19 +62,8 @@ class IPokedexTest {
         when(mockPokedex.getPokemons(any())).then(new Answer<List<Pokemon>>() {
             @Override
             public List<Pokemon> answer(InvocationOnMock invocationOnMock) throws Throwable {
-                Comparator<Pokemon> comparator=new Comparator<Pokemon>() {
-                    @Override
-                    public int compare(Pokemon o1, Pokemon o2) {
-                        if (o1.getIndex()<o2.getIndex()){
-                            return -1;
-                        }
-                        else if (o1.getIndex()==o2.getIndex()) {
-                            return 0;
-                        }
-                        return 0;
-                    }
-                };
-                pokemonList.sort(comparator);
+                PokemonComparators comparators=PokemonComparators.INDEX;
+                pokemonList.sort(comparators);
                 return pokemonList;
             }
         });
@@ -145,18 +134,7 @@ class IPokedexTest {
 
     @Test
     public void getPokemonsComparatorTest(){
-        Comparator<Pokemon> comparator=new Comparator<Pokemon>() {
-            @Override
-            public int compare(Pokemon o1, Pokemon o2) {
-                if (o1.getIndex()<o2.getIndex()){
-                    return -1;
-                }
-                else if (o1.getIndex()==o2.getIndex()) {
-                    return 0;
-                }
-                return 0;
-            }
-        };
+        PokemonComparators comparator=PokemonComparators.INDEX;
         mockPokedex.addPokemon(aquali);
         mockPokedex.addPokemon(bulbizarre);
         List<Pokemon> list=mockPokedex.getPokemons(comparator);
