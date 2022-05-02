@@ -108,7 +108,7 @@ public class IPokedexTest extends TestCase {
     @Test
     public void testGetPokemonShouldThrowException1(){
         try {
-            when(mockPokedex.getPokemon(1)).thenThrow(PokedexException.class);
+            when(mockPokedex.getPokemon(1)).thenThrow(new PokedexException("Blop"));
         } catch (PokedexException e) {
             e.printStackTrace();
         }
@@ -116,6 +116,7 @@ public class IPokedexTest extends TestCase {
         assertThrows(PokedexException.class, () -> {
             mockPokedex.getPokemon(1);
         });
+
     }
 
 

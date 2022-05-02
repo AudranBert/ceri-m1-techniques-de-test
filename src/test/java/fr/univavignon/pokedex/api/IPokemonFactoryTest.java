@@ -27,7 +27,7 @@ public class IPokemonFactoryTest  extends TestCase {
     @Test
     public void testGetCpBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(0,pkm.getIndex());
+        assertEquals(613,pkm.getCp());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class IPokemonFactoryTest  extends TestCase {
     @Test
     public void testGetCpAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
-        assertEquals(133,pkm.getIndex());
+        assertEquals(2729,pkm.getCp());
     }
 
     @Test

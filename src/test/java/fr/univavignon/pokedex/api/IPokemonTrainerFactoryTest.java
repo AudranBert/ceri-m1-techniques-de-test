@@ -32,4 +32,9 @@ public class IPokemonTrainerFactoryTest extends TestCase {
         assertEquals(Team.MYSTIC,mockPokemonTrainerFactory.createTrainer("Test",Team.MYSTIC,pokedexFactory).getTeam());
     }
 
+    @Test
+    public void testCreateTrainerGetPokedex() {
+        assertEquals(pokedex,mockPokemonTrainerFactory.createTrainer("Test",Team.MYSTIC,pokedexFactory).getPokedex());
+    }
+
 }
