@@ -1,13 +1,15 @@
 package fr.univavignon.pokedex.api;
 
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class IPokemonMetadataProviderTest   {
+public class IPokemonMetadataProviderTest  extends TestCase {
 
     IPokemonMetadataProvider mockMetaDataProvider = mock(IPokemonMetadataProvider.class);
     PokemonMetadata bulbizarre=new PokemonMetadata(0,"Bulbizarre",126,126,90);
@@ -15,7 +17,7 @@ class IPokemonMetadataProviderTest   {
 
 
     @BeforeEach
-    public void setup(){
+    public void setUp(){
         try {
             when(mockMetaDataProvider.getPokemonMetadata(0)).thenReturn(bulbizarre);
             when(mockMetaDataProvider.getPokemonMetadata(133)).thenReturn(aquali);
@@ -27,7 +29,7 @@ class IPokemonMetadataProviderTest   {
 
 
     @Test
-    void getIndexTestBulbizarre() {
+    public void testGetIndexBulbizarre() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
             assertEquals(0,pm.getIndex());
@@ -37,7 +39,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getNameTestBulbizarre() {
+    public void testGetNameBulbizarre() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
             assertEquals("Bulbizarre",pm.getName());
@@ -47,7 +49,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getAttackTestBulbizarre() {
+    public void testGetAttackBulbizarre() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
             assertEquals(126,pm.getAttack());
@@ -58,7 +60,7 @@ class IPokemonMetadataProviderTest   {
 
 
     @Test
-    void getDefenseTestBulbizarre() {
+    public void testGetDefenseBulbizarre() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
             assertEquals(126,pm.getDefense());
@@ -68,7 +70,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getStaminaTestBulbizarre() {
+    public  void testGetStaminaBulbizarre() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
             assertEquals(90,pm.getStamina());
@@ -78,7 +80,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getIndexTestAquali() {
+    public void testGetIndexAquali() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
             assertEquals(133,pm.getIndex());
@@ -88,7 +90,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getNameTestAquali() {
+    public void testGetNameAquali() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
             assertEquals("Aquali",pm.getName());
@@ -98,7 +100,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getAttackTestAquali() {
+    public void testGetAttackAquali() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
             assertEquals(186,pm.getAttack());
@@ -109,7 +111,7 @@ class IPokemonMetadataProviderTest   {
 
 
     @Test
-    void getDefenseTestAquali() {
+    public  void testGetDefenseAquali() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
             assertEquals(168,pm.getDefense());
@@ -119,7 +121,7 @@ class IPokemonMetadataProviderTest   {
     }
 
     @Test
-    void getStaminaTestAquali() {
+    public void testgetStaminaAquali() {
         try {
             PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
             assertEquals(260,pm.getStamina());
