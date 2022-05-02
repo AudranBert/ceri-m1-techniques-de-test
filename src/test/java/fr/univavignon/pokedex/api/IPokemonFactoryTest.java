@@ -21,61 +21,61 @@ class IPokemonFactoryTest {
 
 
     @Test
-    public void getCpTestBulbizarre() {
+    public void TestGetCpBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(0,pkm.getIndex());
     }
 
     @Test
-    public void getHpTestBulbizarre() {
+    public void TestGetHpBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(64,pkm.getHp());
     }
 
     @Test
-    public void getDustTestBulbizarre() {
+    public void TestGetDustBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(4000,pkm.getDust());
     }
 
     @Test
-    public void getCandyTestBulbizarre() {
+    public void TestGetCandyBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(4,pkm.getCandy());
     }
 
     @Test
-    public void getIvTestBulbizarre() {
+    public void TestGetIvBulbizarre() {
         Pokemon pkm=mockPokemonFactory.createPokemon(0,613,64,4000,4);
         assertEquals(56,pkm.getIv());
     }
 
     @Test
-    public void getCpTestAquali() {
+    public void TestGetCpAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
         assertEquals(133,pkm.getIndex());
     }
 
     @Test
-    public void getHpTestAquali() {
+    public void TestGetHpAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
         assertEquals(202,pkm.getHp());
     }
 
     @Test
-    public void getDustTestAquali() {
+    public void TestGetDustAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
         assertEquals(5000,pkm.getDust());
     }
 
     @Test
-    public void getCandyTestAquali() {
+    public void TestGetCandyAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
         assertEquals(4,pkm.getCandy());
     }
 
     @Test
-    public void getIvTestAquali() {
+    public void TestGetIvAquali() {
         Pokemon pkm=mockPokemonFactory.createPokemon(133,2729,202,5000,4);
         assertEquals(100,pkm.getIv());
     }

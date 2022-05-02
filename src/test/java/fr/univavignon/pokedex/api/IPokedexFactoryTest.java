@@ -62,7 +62,7 @@ class IPokedexFactoryTest {
     }
 
     @Test
-    void createPokedexTest() {
+    void TestCreatePokedex() {
         IPokedex pokedex=mockPokedexFactory.createPokedex(provider,factory);
         try {
             assertEquals(0,pokedex.getPokemon(0).getIndex());

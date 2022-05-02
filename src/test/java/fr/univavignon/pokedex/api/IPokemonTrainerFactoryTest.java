@@ -24,12 +24,12 @@ class IPokemonTrainerFactoryTest {
     }
 
     @Test
-    void createTrainerTest() {
+    void TestCreateTrainer() {
         assertEquals("Test",mockPokemonTrainerFactory.createTrainer("Test",Team.MYSTIC,pokedexFactory).getName());
     }
 
     @Test
-    void createTrainerTestGetTeam() {
+    void TestCreateTrainerGetTeam() {
         assertEquals(Team.MYSTIC,mockPokemonTrainerFactory.createTrainer("Test",Team.MYSTIC,pokedexFactory).getTeam());
     }
 

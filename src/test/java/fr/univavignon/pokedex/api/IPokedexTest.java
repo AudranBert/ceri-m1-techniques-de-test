@@ -72,14 +72,14 @@ class IPokedexTest {
 
 
     @Test
-    public void addPokemonTestBulbizarre(){
+    public void TestAddPokemonBulbizarre(){
         int idx=mockPokedex.addPokemon(bulbizarre);
         assertEquals(0,idx);
 
     }
 
     @Test
-    public void sizeTestBulbizarre(){
+    public void TestSizeBulbizarre(){
         assertEquals(0,mockPokedex.size());
         mockPokedex.addPokemon(bulbizarre);
         assertEquals(1,mockPokedex.size());
@@ -88,7 +88,7 @@ class IPokedexTest {
 
 
     @Test
-    public void getPokemonTestShouldThrowException(){
+    public void TestGetPokemonShouldThrowException(){
         try {
             when(mockPokedex.getPokemon(-1)).thenThrow(PokedexException.class);
         } catch (PokedexException e) {
@@ -101,7 +101,7 @@ class IPokedexTest {
     }
 
     @Test
-    public void getPokemonTestShouldThrowException1(){
+    public void TestGetPokemonShouldThrowException1(){
         try {
             when(mockPokedex.getPokemon(1)).thenThrow(PokedexException.class);
         } catch (PokedexException e) {
@@ -115,7 +115,7 @@ class IPokedexTest {
 
 
     @Test
-    public void getPokemonTestBulbizarre(){
+    public void TestGetPokemonBulbizarre(){
         try {
             mockPokedex.addPokemon(bulbizarre);
             assertEquals(0,mockPokedex.getPokemon(0).getIndex());
@@ -125,7 +125,7 @@ class IPokedexTest {
     }
 
     @Test
-    public void getPokemonsTest(){
+    public void TestGetPokemons(){
         mockPokedex.addPokemon(bulbizarre);
         List<Pokemon> list=mockPokedex.getPokemons();
         assertEquals(list.get(0).getIndex(),bulbizarre.getIndex());
@@ -133,7 +133,7 @@ class IPokedexTest {
 
 
     @Test
-    public void getPokemonsComparatorTest(){
+    public void TestGetPokemonsComparator(){
         PokemonComparators comparator=PokemonComparators.INDEX;
         mockPokedex.addPokemon(aquali);
         mockPokedex.addPokemon(bulbizarre);
