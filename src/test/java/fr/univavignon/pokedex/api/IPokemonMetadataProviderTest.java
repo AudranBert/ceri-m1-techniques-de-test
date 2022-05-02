@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class IPokemonMetadataProviderTest {
+class IPokemonMetadataProviderTest   {
 
     IPokemonMetadataProvider mockMetaDataProvider = mock(IPokemonMetadataProvider.class);
     PokemonMetadata bulbizarre=new PokemonMetadata(0,"Bulbizarre",126,126,90);

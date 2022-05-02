@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class IPokemonFactoryTest {
+class IPokemonFactoryTest   {
 
     IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
     Pokemon bulbizarre=new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
