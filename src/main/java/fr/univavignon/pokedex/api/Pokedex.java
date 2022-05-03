@@ -7,10 +7,10 @@ import java.util.List;
 public class Pokedex implements IPokedex{
 
     ArrayList<Pokemon> listPokemon=new ArrayList<>();
-    PokemonFactory pokemonFactory;
-    PokemonMetadataProvider pokemonMetadataProvider;
+    IPokemonFactory pokemonFactory;
+    IPokemonMetadataProvider pokemonMetadataProvider;
 
-    public Pokedex(PokemonFactory pokemonFactory, PokemonMetadataProvider pokemonMetadataProvider) {
+    public Pokedex(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemonFactory = pokemonFactory;
         this.pokemonMetadataProvider = pokemonMetadataProvider;
     }
@@ -28,7 +28,12 @@ public class Pokedex implements IPokedex{
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-        return listPokemon.get(id);
+        try{
+            return listPokemon.get(id);
+        }
+        catch (IndexOutOfBoundsException e){
+           throw new PokedexException("pokemon inexistant");
+        }
     }
 
     @Override

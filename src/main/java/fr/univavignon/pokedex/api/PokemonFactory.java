@@ -31,7 +31,7 @@ public class PokemonFactory implements IPokemonFactory {
             rng=rn.nextInt(16);
             sumRng+=rng;
             int stamina=meta.getStamina()+rng;
-            return new Pokemon(index, meta.getName(), attack, defense,stamina,cp,hp,dust,candy,(int) (sumRng*100)/45);
+            return new Pokemon(index, meta.getName(), attack, defense,stamina,cp,hp,dust,candy, (sumRng*100)/45);
         } catch (PokedexException e) {
             e.printStackTrace();
         }

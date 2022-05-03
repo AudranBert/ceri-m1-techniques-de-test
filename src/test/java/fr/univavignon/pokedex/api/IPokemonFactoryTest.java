@@ -1,11 +1,12 @@
 package fr.univavignon.pokedex.api;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 
+import static org.mockito.Mockito.when;
 
 import static org.mockito.Mockito.mock;
 
@@ -16,10 +17,13 @@ public class IPokemonFactoryTest  extends TestCase {
     Pokemon bulbizarre=new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
     Pokemon aquali=new Pokemon(133,"Aquali",186,168,260,2729,202,5000,4,100);
 
-    @BeforeEach
+    @Before
     public void setUp(){
-        //when(mockPokemonFactory.createPokemon(0,613,64,4000,4)).thenReturn(bulbizarre);
-        //when(mockPokemonFactory.createPokemon(133,2729,202,5000,4)).thenReturn(aquali);
+        /*
+        when(pokemonFactory.createPokemon(0,613,64,4000,4)).thenReturn(bulbizarre);
+        when(pokemonFactory.createPokemon(133,2729,202,5000,4)).thenReturn(aquali);
+        */
+
     }
 
 
@@ -83,5 +87,12 @@ public class IPokemonFactoryTest  extends TestCase {
         Pokemon pkm= pokemonFactory.createPokemon(133,2729,202,5000,4);
         assertTrue((pkm.getIv()>=0 && pkm.getIv()<=100));
         //assertEquals(100.0,pkm.getIv());
+    }
+
+    @Test
+    public void testGetAttack(){
+        Pokemon pkm= pokemonFactory.createPokemon(0,2729,202,5000,4);
+        assertTrue((pkm.getAttack()>= bulbizarre.getAttack() && pkm.getAttack()<= bulbizarre.getAttack()+15));
+
     }
 }
