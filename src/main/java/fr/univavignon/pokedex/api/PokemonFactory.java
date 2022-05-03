@@ -4,6 +4,7 @@ import org.apache.commons.collections4.map.UnmodifiableMap;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class PokemonFactory implements IPokemonFactory {
 
@@ -19,8 +20,18 @@ public class PokemonFactory implements IPokemonFactory {
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+        Random rn = new Random();
         PokemonMetadata meta=index2meta.get(index);
-        int attack=meta.getAttack();
-        return new Pokemon(index, meta.getName(), attack, meta.getDefense(),meta.getStamina(),cp,hp,dust,candy,0);
+        int sumRng=0;
+        int rng=rn.nextInt(16);
+        sumRng+=rng;
+        int attack=meta.getAttack()+rng;
+        rng=rn.nextInt(16);
+        sumRng+=rng;
+        int defense=meta.getDefense()+rng;
+        rng=rn.nextInt(16);
+        sumRng+=rng;
+        int stamina=meta.getStamina()+rng;
+        return new Pokemon(index, meta.getName(), attack, defense,stamina,cp,hp,dust,candy,(int) (sumRng*100)/45);
     }
 }
