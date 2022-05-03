@@ -12,7 +12,7 @@ import static org.mockito.Mockito.mock;
 public class IPokemonFactoryTest  extends TestCase {
 
     //IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
-    IPokemonFactory pokemonFactory =new PokemonFactory();
+    IPokemonFactory pokemonFactory =new PokemonFactory(new PokemonMetadataProvider());
     Pokemon bulbizarre=new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
     Pokemon aquali=new Pokemon(133,"Aquali",186,168,260,2729,202,5000,4,100);
 
