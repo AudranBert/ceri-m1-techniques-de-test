@@ -13,7 +13,7 @@ public class PokemonFactory implements IPokemonFactory {
     PokemonMetadataProvider pokemonMetadataProvider;
 
     public PokemonFactory(PokemonMetadataProvider pokemonMetadataProvider) {
-        pokemonMetadataProvider=pokemonMetadataProvider;
+        this.pokemonMetadataProvider=pokemonMetadataProvider;
     }
 
     @Override
