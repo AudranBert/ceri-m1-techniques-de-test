@@ -1,7 +1,6 @@
 package fr.univavignon.pokedex.api;
 
 import junit.framework.TestCase;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -11,27 +10,30 @@ import static org.mockito.Mockito.when;
 
 public class IPokemonMetadataProviderTest  extends TestCase {
 
-    IPokemonMetadataProvider mockMetaDataProvider = mock(IPokemonMetadataProvider.class);
+    //IPokemonMetadataProvider metaDataProvider = mock(IPokemonMetadataProvider.class);
+    IPokemonMetadataProvider metaDataProvider = new PokemonMetadataProvider();
+
     PokemonMetadata bulbizarre=new PokemonMetadata(0,"Bulbizarre",126,126,90);
     PokemonMetadata aquali=new PokemonMetadata(133,"Aquali",186,168,260);
 
 
     @BeforeEach
     public void setUp(){
+        /*
         try {
-            when(mockMetaDataProvider.getPokemonMetadata(0)).thenReturn(bulbizarre);
-            when(mockMetaDataProvider.getPokemonMetadata(133)).thenReturn(aquali);
+            when(metaDataProvider.getPokemonMetadata(0)).thenReturn(bulbizarre);
+            when(metaDataProvider.getPokemonMetadata(133)).thenReturn(aquali);
         } catch (PokedexException e) {
             e.printStackTrace();
         }
-
+        */
     }
 
 
     @Test
     public void testGetIndexBulbizarre() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(0);
             assertEquals(0,pm.getIndex());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -41,7 +43,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetNameBulbizarre() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(0);
             assertEquals("Bulbizarre",pm.getName());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -51,7 +53,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetAttackBulbizarre() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(0);
             assertEquals(126,pm.getAttack());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -62,7 +64,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetDefenseBulbizarre() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(0);
             assertEquals(126,pm.getDefense());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -72,7 +74,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public  void testGetStaminaBulbizarre() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(0);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(0);
             assertEquals(90,pm.getStamina());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -82,7 +84,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetIndexAquali() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(133);
             assertEquals(133,pm.getIndex());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -92,7 +94,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetNameAquali() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(133);
             assertEquals("Aquali",pm.getName());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -102,7 +104,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testGetAttackAquali() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(133);
             assertEquals(186,pm.getAttack());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -113,7 +115,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public  void testGetDefenseAquali() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(133);
             assertEquals(168,pm.getDefense());
         } catch (PokedexException e) {
             e.printStackTrace();
@@ -123,7 +125,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     @Test
     public void testgetStaminaAquali() {
         try {
-            PokemonMetadata pm=mockMetaDataProvider.getPokemonMetadata(133);
+            PokemonMetadata pm= metaDataProvider.getPokemonMetadata(133);
             assertEquals(260,pm.getStamina());
         } catch (PokedexException e) {
             e.printStackTrace();
