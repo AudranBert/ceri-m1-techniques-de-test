@@ -4,8 +4,8 @@ package fr.univavignon.pokedex.api;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -29,7 +29,7 @@ public class IPokedexFactoryTest extends TestCase {
     //IPokedex pokedexTrue = mock(IPokedex.class);
     IPokedex pokedexTrue = new Pokedex( factory, provider);
 
-    @BeforeEach
+    @Before
     public void setUp(){
         //when(pokedexFactory.createPokedex(provider, factory)).thenReturn(pokedexTrue);
     }

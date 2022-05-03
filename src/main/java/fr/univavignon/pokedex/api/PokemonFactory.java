@@ -10,9 +10,9 @@ public class PokemonFactory implements IPokemonFactory {
 
 
 
-    PokemonMetadataProvider pokemonMetadataProvider;
+    IPokemonMetadataProvider pokemonMetadataProvider;
 
-    public PokemonFactory(PokemonMetadataProvider pokemonMetadataProvider) {
+    public PokemonFactory(IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemonMetadataProvider=pokemonMetadataProvider;
     }
 

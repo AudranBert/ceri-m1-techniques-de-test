@@ -1,8 +1,8 @@
 package fr.univavignon.pokedex.api;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -17,7 +17,7 @@ public class IPokemonMetadataProviderTest  extends TestCase {
     PokemonMetadata aquali=new PokemonMetadata(133,"Aquali",186,168,260);
 
 
-    @BeforeEach
+    @Before
     public void setUp(){
         /*
         try {

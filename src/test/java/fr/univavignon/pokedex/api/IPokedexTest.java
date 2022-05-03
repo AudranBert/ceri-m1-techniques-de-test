@@ -152,4 +152,20 @@ public class IPokedexTest extends TestCase {
         List<Pokemon> list= pokedex.getPokemons(comparator);
         assertEquals(list.get(0).getIndex(),bulbizarre.getIndex());
     }
+
+    @Test
+    public void testCreatePokemon(){
+        Pokemon pkm=pokedex.createPokemon(0,613,64,4000,4);
+        assertEquals(64,pkm.getHp());
+    }
+
+    @Test
+    public void testGetPokemonMetadata(){
+        try {
+            PokemonMetadata pkm=pokedex.getPokemonMetadata(0);
+            assertEquals(0,pkm.getIndex());
+        } catch (PokedexException e) {
+            e.printStackTrace();
+        }
+    }
 }
