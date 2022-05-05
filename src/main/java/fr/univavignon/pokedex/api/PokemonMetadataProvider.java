@@ -19,10 +19,9 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        try{
+        try {
             return index2meta.get(index);
-        }catch (IndexOutOfBoundsException e)
-        {
+        } catch (IndexOutOfBoundsException e) {
             throw new PokedexException("pokemon inconnu");
         }
     }

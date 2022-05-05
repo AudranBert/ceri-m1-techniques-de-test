@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Pokedex implements IPokedex{
+public class Pokedex implements IPokedex {
 
-    ArrayList<Pokemon> listPokemon=new ArrayList<>();
-    IPokemonFactory pokemonFactory;
-    IPokemonMetadataProvider pokemonMetadataProvider;
+    private ArrayList<Pokemon> listPokemon = new ArrayList<>();
+    private IPokemonFactory pokemonFactory;
+    private IPokemonMetadataProvider pokemonMetadataProvider;
 
     public Pokedex(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemonFactory = pokemonFactory;
@@ -23,15 +23,14 @@ public class Pokedex implements IPokedex{
     @Override
     public int addPokemon(Pokemon pokemon) {
         listPokemon.add(pokemon);
-        return listPokemon.size()-1;
+        return listPokemon.size() - 1;
     }
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-        try{
+        try {
             return listPokemon.get(id);
-        }
-        catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
            throw new PokedexException("pokemon inexistant");
         }
     }
@@ -43,14 +42,14 @@ public class Pokedex implements IPokedex{
 
     @Override
     public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
-        ArrayList<Pokemon> sortedList= new ArrayList<>(listPokemon);
+        ArrayList<Pokemon> sortedList = new ArrayList<>(listPokemon);
         sortedList.sort(order);
         return sortedList;
     }
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-        return pokemonFactory.createPokemon(index,cp,hp,dust,candy);
+        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 
     @Override
