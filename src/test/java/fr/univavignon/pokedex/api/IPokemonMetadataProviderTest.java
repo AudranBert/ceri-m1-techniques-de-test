@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -29,6 +30,12 @@ public class IPokemonMetadataProviderTest  extends TestCase {
         */
     }
 
+    @Test
+    public void testGetPokemonMetadataBadIndex() {
+        assertThrows(PokedexException.class, () -> {
+            metaDataProvider.getPokemonMetadata(100);
+        });
+    }
 
     @Test
     public void testGetIndexBulbizarre() {

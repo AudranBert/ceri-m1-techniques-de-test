@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.when;
 
 import static org.mockito.Mockito.mock;
@@ -24,6 +25,11 @@ public class IPokemonFactoryTest  extends TestCase {
         when(pokemonFactory.createPokemon(133,2729,202,5000,4)).thenReturn(aquali);
         */
 
+    }
+
+    @Test
+    public void testCreatePokemonBadIndexMetadata() {
+        assertNull(pokemonFactory.createPokemon(100,613,64,4000,4));
     }
 
 
