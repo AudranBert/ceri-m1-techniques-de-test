@@ -14,8 +14,8 @@ import static org.mockito.Mockito.mock;
 public class IPokemonFactoryTest  extends TestCase {
 
     // IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
-    IPokemonFactory pokemonFactory =new PokemonFactory(new PokemonMetadataProvider());
-    // IPokemonFactory pokemonFactory =new RocketPokemonFactory();
+    // IPokemonFactory pokemonFactory =new PokemonFactory(new PokemonMetadataProvider());
+    IPokemonFactory pokemonFactory =new RocketPokemonFactory();
     Pokemon bulbizarre=new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56);
     Pokemon aquali=new Pokemon(133,"Aquali",186,168,260,2729,202,5000,4,100);
 
@@ -33,6 +33,10 @@ public class IPokemonFactoryTest  extends TestCase {
         assertNull(pokemonFactory.createPokemon(100,613,64,4000,4));
     }
 
+    @Test
+    public void testCreatePokemonNegativeIndexMetadata() {
+        assertNull(pokemonFactory.createPokemon(-1,613,64,4000,4));
+    }
 
     @Test
     public void testGetCpBulbizarre() {
