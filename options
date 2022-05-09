@@ -1,0 +1,26 @@
+-classpath
+'C:/Users/berta/.m2/repository/org/apache/commons/commons-collections4/4.0/commons-collections4-4.0.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'C:/Users/berta/Documents/GitHub/ceri-m1-techniques-de-test/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/berta/Documents/GitHub/ceri-m1-techniques-de-test/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ceri-m1-techniques-de-test 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/berta/Documents/GitHub/ceri-m1-techniques-de-test/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ceri-m1-techniques-de-test 1.0-SNAPSHOT API'
