@@ -11,7 +11,7 @@ jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   docs-deploy:
     docker:
-      - image: cimg/openjdk:11.0
+      - image: node:8.10.1
     steps:
       - checkout
       - attach_workspace:
@@ -65,4 +65,8 @@ workflows:
             branches:
               only:
                 master
-      - docs-deploy
+      - docs-deploy:
+          filters:
+            branches:
+              only:
+                master
