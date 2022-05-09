@@ -12,7 +12,7 @@ jobs:
 
   docs-deploy:
     docker:
-      - image: node:8.10.1
+      - image: node:8.10.0
     steps:
       - checkout
       - attach_workspace:
