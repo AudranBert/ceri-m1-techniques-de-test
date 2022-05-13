@@ -104,6 +104,12 @@ public class IPokemonFactoryTest  extends TestCase {
     public void testGetAttack(){
         Pokemon pkm= pokemonFactory.createPokemon(0,2729,202,5000,4);
         assertTrue((pkm.getAttack()>= bulbizarre.getAttack() && pkm.getAttack()<= bulbizarre.getAttack()+15));
-
     }
+
+    @Test
+    public void testGetIv(){
+        Pokemon pkm= pokemonFactory.createPokemon(0,2729,202,5000,4);
+        assertTrue((pkm.getIv()>= 0 && pkm.getIv()<= 100));
+    }
+
 }
