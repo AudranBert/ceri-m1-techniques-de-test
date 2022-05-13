@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Class Pokedex, implements IPokedex
+ * @author Audran
+ */
 public class Pokedex implements IPokedex {
 
     private ArrayList<Pokemon> listPokemon = new ArrayList<>();

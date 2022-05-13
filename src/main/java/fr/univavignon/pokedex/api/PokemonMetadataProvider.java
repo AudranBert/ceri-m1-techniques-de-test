@@ -5,6 +5,10 @@ import org.apache.commons.collections4.map.UnmodifiableMap;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class PokemonMetadataProvider, implements IPokemonMetadataProvider
+ * @author Audran
+ */
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
 

@@ -15,3 +15,4 @@ Groupe: ILSEN-CLA-GR2
 ## Rapport TP6
 
 J ai trois tests qui ne sont pas passes: testGetAttack, testCreatePokemonBadIndexMetadata et testCreatePokemonNegativeIndexMetadata.
+

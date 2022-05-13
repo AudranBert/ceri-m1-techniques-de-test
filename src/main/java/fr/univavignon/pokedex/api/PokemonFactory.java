@@ -2,9 +2,11 @@ package fr.univavignon.pokedex.api;
 
 import java.util.Random;
 
+/**
+ * Class PokemonFactory, implements IPokemonFactory
+ * @author Audran
+ */
 public class PokemonFactory implements IPokemonFactory {
-
-
 
     private IPokemonMetadataProvider pokemonMetadataProvider;
 

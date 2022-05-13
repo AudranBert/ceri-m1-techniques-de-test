@@ -1,5 +1,9 @@
 package fr.univavignon.pokedex.api;
 
+/**
+ * Class PokedexFactory, implements IPokedexFactory
+ * @author Audran
+ */
 public class PokedexFactory implements IPokedexFactory {
 
     @Override
