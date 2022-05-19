@@ -23,8 +23,11 @@ De même, pour testCreatePokemonNegativeIndexMetadata, l'index fourni est négat
 L'index -1 devrait être toujours invalide sauf que, ici à l'index -1 il y a un pokémon "Ash's Pikachu" qui fait que ca renvoie un pokémon au lieu de null.
 
 Le test testGetAttack qui verifie si l'attaque du pokémon est bien comprise entre la valeur de base de la metadata et +15 comme c'est demandé dans le sujet.
+L'attaque n'est ici pas basée sur la valeur de la metadata, c'est seulement une valeur aléatoire (générée entre 0 et 200). Sauf pour "Ash's Pikachu" qui a une valeur fixée: 1000.
+C'est la même chose pour la défense et l'endurance.
 
 Au niveau des performances, j'ai remarqué que pour générer un nombre aléatoire ils font une boucle qui va jusqu'à 1000000.
-Faire une aussi grosse boucle alors que c'est pas nécessaire dégrade les performances de l'application.
+Faire une aussi grosse boucle alors que c'est pas nécessaire dégrade les performances de l'application. Nous n'avons pas fait de test de performance donc pas possible de voir l'impact.
 
-J'ai remarqué aussi que l'iv était fixé au lieu de correspondre à la formule donnée.
+J'ai remarqué aussi que l'iv était fixé à 1 ou 0 au lieu de correspondre à la formule donnée. 
+La formule étant l'addition  les trois valeurs aléatoires (entre 0 et 15) générées divisé par la valeur possible (45).
