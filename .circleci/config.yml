@@ -10,26 +10,6 @@ orbs:
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
 
-  docs-deploy:
-    docker:
-      - image: node:8.10.0
-    steps:
-      - checkout
-      - attach_workspace:
-          at: target
-      - run:
-          name: Install and configure dependencies
-          command: |
-            npm install -g --silent gh-pages@2.0.1
-            git config user.email "ci-build@klukas.net"
-            git config user.name "ci-build"
-      - add_ssh_keys:
-          fingerprints:
-              - "e8:e4:78:8a:6d:0c:b2:ac:47:10:8f:de:8c:fe:77:d5"
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: gh-pages --dotfiles --message "[skip ci] Updates" --dist target/apidocs
-
   build-and-test:
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -52,6 +32,25 @@ jobs:
           command: mvn test
       - codecov/upload
 
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: target
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@klukas.net"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "e8:e4:78:8a:6d:0c:b2:ac:47:10:8f:de:8c:fe:77:d5"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dotfiles --message "[skip ci] Updates" --dist target/apidocs
 
 
 
@@ -67,6 +66,8 @@ workflows:
               only:
                 master
       - docs-deploy:
+          requires:
+            - build-and-test
           filters:
             branches:
               only:
